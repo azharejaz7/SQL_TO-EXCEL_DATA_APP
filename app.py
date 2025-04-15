@@ -32,8 +32,8 @@ st.set_page_config(page_title="💾 SQL TO EXCEL", layout="wide")
 
 # Define passwords and hash them
 
-passwords = [get_secret("USER1_PASSWORD"), get_secret("USER2_PASSWORD")]
-hashed_passwords = stauth.Hasher(passwords).generate()
+hashed_passwords = st.secrets["HASHED_PASSWORDS"]
+
 # Users and authentication setup
 names = [get_secret("USER1_NAME"), get_secret("USER2_NAME")]
 usernames = [get_secret("USER1_USERNAME"), get_secret("USER2_USERNAME")]
