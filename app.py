@@ -15,6 +15,7 @@ import json
 import toml
 from pathlib import Path
 from dotenv import load_dotenv
+import bcrypt
 
 # Load environment variables from .env file if it exists
 if os.path.exists(".env"):
@@ -32,36 +33,81 @@ AUTH_COOKIE_EXPIRY_DAYS = int(os.getenv("AUTH_COOKIE_EXPIRY_DAYS", "30"))
 # Log startup info
 print(f"Starting app with SQL server: {SQL_SERVER}")
 
+# Helper function to check if a password is already hashed
+def is_hashed(password):
+    return password and password.startswith("$2b$") and len(password) > 50
+
+# Helper function to hash a password if it's not already hashed
+def hash_password_if_needed(password):
+    if not password:
+        return None
+    if is_hashed(password):
+        return password
+    else:
+        return stauth.Hasher([password]).generate()[0]
+
 # Create a credentials dictionary from environment variables with fallbacks
 try:
+    # Get user credentials
+    user1_username = os.getenv("USER1_USERNAME", "")
+    user1_name = os.getenv("USER1_NAME", "")
+    user1_password = os.getenv("USER1_PASSWORD", "")
+    
+    user2_username = os.getenv("USER2_USERNAME", "")
+    user2_name = os.getenv("USER2_NAME", "")
+    user2_password = os.getenv("USER2_PASSWORD", "")
+    
+    # Hash passwords if needed
+    user1_password = hash_password_if_needed(user1_password)
+    user2_password = hash_password_if_needed(user2_password)
+    
+    print(f"User 1 username: {user1_username}, name: {user1_name}")
+    print(f"User 2 username: {user2_username}, name: {user2_name}")
+    
+    # Create credentials dictionary
     credentials = {
-        "usernames": {
-            os.getenv("USER1_USERNAME", ""): {
-                "name": os.getenv("USER1_NAME", ""),
-                "password": os.getenv("USER1_PASSWORD", "")
-            },
-            os.getenv("USER2_USERNAME", ""): {
-                "name": os.getenv("USER2_NAME", ""),
-                "password": os.getenv("USER2_PASSWORD", "")
-            }
-        }
+        "usernames": {}
     }
     
-    # Remove any empty username entries
-    credentials["usernames"] = {k: v for k, v in credentials["usernames"].items() if k}
+    # Add users to credentials dictionary
+    if user1_username and user1_name and user1_password:
+        credentials["usernames"][user1_username] = {
+            "name": user1_name,
+            "password": user1_password
+        }
+        
+    if user2_username and user2_name and user2_password:
+        credentials["usernames"][user2_username] = {
+            "name": user2_name,
+            "password": user2_password
+        }
     
     # Ensure we have at least one valid user
     if not credentials["usernames"]:
-        # Add a default user for testing if no valid users are found
-        # This should be removed in production
-        st.error("No valid users found in environment variables! Using default test user.")
+        st.warning("No valid users found in environment variables! Adding a default test user.")
+        # Hash a default password
+        default_password = hash_password_if_needed("password")
         credentials["usernames"]["admin"] = {
             "name": "Admin User",
-            "password": "passoword"  # "password" hashed
+            "password": default_password
         }
+        st.info("Default credentials: username = 'admin', password = 'password'")
+    
+    print(f"Available users: {list(credentials['usernames'].keys())}")
+    
 except Exception as e:
     st.error(f"Error setting up credentials: {e}")
-    credentials = {"usernames": {"admin": {"name": "Admin", "password": "passoword"}}}
+    # Create a default admin user with a properly hashed password
+    default_password = hash_password_if_needed("password")
+    credentials = {
+        "usernames": {
+            "admin": {
+                "name": "Admin",
+                "password": default_password
+            }
+        }
+    }
+    st.info("Using default credentials due to error: username = 'admin', password = 'password'")
 
 # Create a cookie dictionary from environment variables
 cookie = {
@@ -103,6 +149,7 @@ try:
         st.stop()  # Stop execution if form not submitted
     
     name, authentication_status, username = login_result
+    print(f"Login attempt - username: {username}, status: {authentication_status}")
 
 except Exception as e:
     st.error(f"Login error: {e}")
@@ -111,8 +158,10 @@ except Exception as e:
 # Handle Authentication Status
 if authentication_status is False:
     st.error("❌ Username/password is incorrect")
+    st.stop()
 elif authentication_status is None:
     st.warning("⌨️ Please enter your username and password")
+    st.stop()
 elif authentication_status:
     # Get the real name from environment variables based on username
     if username == os.getenv("USER1_USERNAME"):
