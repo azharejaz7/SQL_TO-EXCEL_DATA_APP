@@ -1,4 +1,3 @@
-﻿﻿packaging
 streamlit
 pandas
 openpyxl
@@ -10,3 +9,4 @@ logging
 SafeLoader
 load_dotenv
 streamlit-authenticator
+﻿﻿packaging
