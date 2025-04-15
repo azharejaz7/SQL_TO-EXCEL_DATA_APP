@@ -17,16 +17,26 @@ from dotenv import load_dotenv
 import os
 
 
+
+
+
 load_dotenv()
+
+def get_secret(key):
+    secret = st.secrets.get(key)
+    if secret:
+        return secret
+    return os.getenv(key)
+
 st.set_page_config(page_title="💾 SQL TO EXCEL", layout="wide")
 
 # Define passwords and hash them
 
-passwords = [os.getenv("USER1_PASSWORD"), os.getenv("USER2_PASSWORD")]
+passwords = [get_secret("USER1_PASSWORD"), get_secret("USER2_PASSWORD")]
 hashed_passwords = stauth.Hasher(passwords).generate()
 # Users and authentication setup
-names = [os.getenv("USER1_NAME"), os.getenv("USER2_NAME")]
-usernames = [os.getenv("USER1_USERNAME"), os.getenv("USER2_USERNAME")]
+names = [get_secret("USER1_NAME"), get_secret("USER2_NAME")]
+usernames = [get_secret("USER1_USERNAME"), get_secret("USER2_USERNAME")]
 
 authenticator = stauth.Authenticate(
     names,
@@ -106,12 +116,12 @@ elif authentication_status:
         with st.expander("Connection Settings"):
             col1, col2 = st.columns(2)
             with col1:
-                server = st.text_input("Server", value=os.getenv("SQL_SERVER"), disabled=True)
+                server = st.text_input("Server", value=get_secret("SQL_SERVER"), disabled=True)
                 selected_Db =st.selectbox("Select Database", list(database_selecttion.keys()))
                 database = database_selecttion[selected_Db]
             with col2:
-                username = st.text_input("Username", value=os.getenv("SQL_USER"), disabled=True)
-                password = st.text_input("Password", value=os.getenv("SQL_PASSWORD"), type="password", disabled=True)
+                username = st.text_input("Username", value=get_secret("SQL_USER"), disabled=True)
+                password = st.text_input("Password", value=get_secret("SQL_PASSWORD"), type="password", disabled=True)
     
         # Date range selection
         st.subheader("Select Date Range")
