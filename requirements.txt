@@ -9,4 +9,4 @@ timedelta
 logging
 SafeLoader
 load_dotenv
-streamlit-authenticator==0.1.5
+streamlit-authenticator
