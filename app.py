@@ -44,7 +44,7 @@ authenticator = stauth.Authenticate(
     hashed_passwords,
     "my_app",  # app name (for cookie)
     "auth",    # cookie key
-    cookie_expiry_days=1
+    1
 )
 
 # Layout: Two columns
