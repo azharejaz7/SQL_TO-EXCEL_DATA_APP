@@ -57,11 +57,11 @@ try:
         st.error("No valid users found in environment variables! Using default test user.")
         credentials["usernames"]["admin"] = {
             "name": "Admin User",
-            "password": "$2b$12$NMBLggDvV77iiJ23i9hgZO1KeMGKS.5/Y.j.AYUbGYx11tmlWPVLi"  # "password" hashed
+            "password": "passoword"  # "password" hashed
         }
 except Exception as e:
     st.error(f"Error setting up credentials: {e}")
-    credentials = {"usernames": {"admin": {"name": "Admin", "password": "$2b$12$NMBLggDvV77iiJ23i9hgZO1KeMGKS.5/Y.j.AYUbGYx11tmlWPVLi"}}}
+    credentials = {"usernames": {"admin": {"name": "Admin", "password": "passoword"}}}
 
 # Create a cookie dictionary from environment variables
 cookie = {
