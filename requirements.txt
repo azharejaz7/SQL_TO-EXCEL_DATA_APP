@@ -10,7 +10,6 @@ openpyxl
 
 datetime
 timedelta
-streamlit.components.v1 ✅ Make sure this line is here
 logging
 streamlit_authenticator
 yaml
