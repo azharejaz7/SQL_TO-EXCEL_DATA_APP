@@ -3,7 +3,6 @@ streamlit
 pandas
 openpyxl
 pyodbc
-BytesIO 
 openpyxl
 datetime
 timedelta
