@@ -3,18 +3,14 @@ streamlit
 pandas
 openpyxl
 pyodbc
- 
-os
 BytesIO 
 openpyxl
-
 datetime
 timedelta
 logging
 streamlit_authenticator
 yaml
 SafeLoader
-
 streamlit_authenticator
 load_dotenv
 
