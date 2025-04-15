@@ -14092,3 +14092,583 @@
                         refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
                         creditLimit, Days,TR.CR_Days
                     
+2025-04-15 22:50:48,230 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: All, PaymentTerms: All
+2025-04-15 22:50:48,230 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: All, PaymentTerms: All
+2025-04-15 22:50:48,230 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: All, PaymentTerms: All
+2025-04-15 22:50:48,230 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: All, PaymentTerms: All
+2025-04-15 22:50:48,230 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: All, PaymentTerms: All
+2025-04-15 22:50:48,230 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: All, PaymentTerms: All
+2025-04-15 22:50:48,230 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: All, PaymentTerms: All
+2025-04-15 22:50:48,230 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: All, PaymentTerms: All
+2025-04-15 22:50:48,231 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                             
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 22:50:48,231 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                             
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 22:50:48,231 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                             
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 22:50:48,231 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                             
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 22:50:48,231 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                             
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 22:50:48,231 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                             
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 22:50:48,231 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                             
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 22:50:48,231 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                             
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,923 | INFO | Running query on DB: PS_TRADE, From: 15-Apr-2025 To: 15-Apr-2025, InvoiceType: No Credit, PaymentTerms: Cash
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    
+2025-04-15 23:04:54,925 | DEBUG | SQL Query: 
+                    SELECT 
+                        acc4 INST_Code,
+                        tr.Company as Institute_Name,
+                        HTPersonName HT_Person,
+                        personName Related_Person,
+                        tr.Id INVOICE_NO,
+                        format(refDate,'dd-MMM-yyyy') as INV_Date,
+                        format(AmtPayable,'N2') NET_AMT,
+                        format(AmtReceived,'N2') RECVD_AMT,
+                        format(SUM(AmtPayable - AmtReceived),'N2') AS Balance,
+                        remarks REMARKS,
+                        DATEDIFF(DAY, refDate, GETDATE()) AS Day_Passed,
+                        CASE 
+                            WHEN TR.CR_Days = 0 THEN DAYs 
+                            ELSE TR.CR_Days 
+                        END AS Day_LIMIT
+                    FROM 
+                        OUTSTANDINGLISTING_NEW('15-Apr-2025','15-Apr-2025','','0001','989801') AS TR
+                    LEFT JOIN 
+                        M_PARTY ON TR.ACC4 = M_PARTY.Id
+                    WHERE 
+                        ReportType = 'Sales Invoices'
+                            AND TR.PaymentTerms = 'No Credit' AND TR.Terms = 'CASH'
+                    GROUP BY 
+                        refDate,acc4, tr.Company, HTPersonName, personName, tr.Id, AmtPayable, AmtReceived, remarks,
+                        creditLimit, Days,TR.CR_Days
+                    

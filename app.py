@@ -242,12 +242,12 @@ elif authentication_status:
         with st.expander("Connection Settings"):
             col1, col2 = st.columns(2)
             with col1:
-                server = st.text_input("Server", value=SQL_SERVER)
+                server = st.text_input("Server", value=SQL_SERVER,disabled=True)
                 selected_Db = st.selectbox("Select Database", list(database_selecttion.keys()))
                 database = database_selecttion[selected_Db]
             with col2:
-                username = st.text_input("Username", value=SQL_USER)
-                password = st.text_input("Password", value=SQL_PASSWORD, type="password")
+                username = st.text_input("Username", value=SQL_USER,disabled=True)
+                password = st.text_input("Password", value=SQL_PASSWORD, type="password" ,disabled=True)
     
         # Date range selection
         st.subheader("Select Date Range")
@@ -267,11 +267,11 @@ elif authentication_status:
             peyment_terms_selected = st.selectbox("Payment Terms", list(payment_terms_selection.keys()))
             payment_terms = payment_terms_selection[peyment_terms_selected]
         with col3:
-            acc2 = st.text_input("First Product Code ", os.getenv("FIRST_PRODUCT_CODE", "0001"))
+            acc2 = st.text_input("First Product Code ", os.getenv("FIRST_PRODUCT_CODE", "0001"),disabled=True)
         with col4:
-            acc3 = st.text_input("Last Product Code", os.getenv("LAST_PRODUCT_CODE", "989801"))
+            acc3 = st.text_input("Last Product Code", os.getenv("LAST_PRODUCT_CODE", "989801"),disabled=True)
         with col5:
-            acc1 = st.text_input("ACC1", "")
+            acc1 = st.text_input("ACC1", "",disabled=True)
         
         
         # Execute query button
