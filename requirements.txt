@@ -11,4 +11,4 @@ streamlit_authenticator
 SafeLoader
 streamlit_authenticator
 load_dotenv
-
+streamlit-authenticator==0.2.2
